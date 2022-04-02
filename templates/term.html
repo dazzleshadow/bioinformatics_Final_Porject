@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="jumbotron"style="background-color:rgba(122, 246, 255, 0.2);">
+    <h1>Final Project</h1>
+    <h2>Search</h2>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title">{{term.short_id}}</h2>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">id:{{term.short_id}}
+
+                </li>
+                <li class="list-group-item">name : {{term.lbl}}</li>
+                <li class="list-group-item" >namespace :</li>
+                <li class="list-group-item" >
+                    <ul id="basicPropertyValues">
+                        {% for basicPropertyValue in term.meta.basicPropertyValues %}
+                            {{basicPropertyValue.val}}                        
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="list-group-item">def : {{term.meta.definition.val}}</li>
+
+                <li class="list-group-item" >synonyms : </li>
+                <li class="list-group-item" >
+                    <ul id="synonyms">
+                        {% for synonym in term.meta.synonyms %}
+                            {{synonym.val}} {{synonym.pred}} {{synonym.xrefs}}                   
+                        {% endfor %}
+                    </ul>
+                </li>
+
+                {% for term in term.is_a_edges %}
+                <li class="list-group-item" >
+                    is_a: {{term.short_id}} ! {{term.lbl}}
+                </li>
+                {% endfor %}
+            </ul>
+
+            </ul>
+        </div>
+    </div>            
+</div>
+{% endblock %}

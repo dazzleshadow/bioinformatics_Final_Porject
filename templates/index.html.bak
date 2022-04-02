@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+    <h1>Bioinformatics Final Project</h1>
+    <h2>Demo Website!!</h2>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title">Member</h2>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">6084705S  蘇冠中</li>
+                <li class="list-group-item">60847025S 李昱勳</li>
+                <li class="list-group-item">60847070S  Hendrik Bierlee</li>
+            </ul>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title">Datasets</h2>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">Gene-Ontology</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<br></br>
+<br></br>
+<div class="jumbotron"style="background-color:rgba(122, 246, 255, 0.2);">
+    <h2>Data list</h2>
+    <input class="input-box" type="text" id="name">
+    <input type="button" value="search" onclick="getInputVal()">
+    <br></br>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title">results</h2>
+        </div>    
+        <div class="list-group-item" > 
+            {% if query %}
+            <p>Search : {{ query }}</p>
+            {% endif %}
+
+            {% if results %}
+            {% for result in results %}
+            <li class="list-group-item" >
+                <a href="http://127.0.0.1:5000/term/{{result.short_id}}">{{result.short_id}}&nbsp-&nbsp{{result.lbl}}</a>            
+            </li>
+            {% endfor %}
+            {% else %}
+            <p>No terms matching query found</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+    var name;
+function getInputVal()
+{
+    //alert('please input something');
+
+    const nameElement = document.getElementById("name");
+    const name = nameElement.value;
+    window.location.href='http://localhost:5000/query?q='+name;
+}
+</script>
+{% endblock %}

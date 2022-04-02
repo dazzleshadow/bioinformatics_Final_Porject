@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<br></br>
+<h1>Medline Abstract</h1>
+
+<form action="{{ url_for('upload') }}" method=post enctype=multipart/form-data>
+    <input type=file name=file>
+    <input type=submit value=Upload>
+</form>
+
+
+{% autoescape false %}
+    <div style="background-color:rgb(255, 255, 255);">{{ abstract }}</div>
+{% endautoescape %}
+
+{% endblock %}
